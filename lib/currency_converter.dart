@@ -22,8 +22,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
 
   // Future<void> _convertCurrency() async {
   //   final response = await http.get(Uri.parse(
-  //       'https://api.exchangerate-api.com/v4/latest/$_fromCurrency'));
-  //       // 'https://djunicode-flutter-task.onrender.com/convert'));
+  //        'https://djunicode-flutter-task.onrender.com/convert'));
 
   //   if (response.statusCode == 200) {
   //     var data = json.decode(response.body);
@@ -99,6 +98,7 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
             key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
                   decoration: BoxDecoration(
@@ -255,7 +255,8 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
                   ),
                 ),
                 SizedBox(height: 16),
-                Container(
+                SingleChildScrollView(
+                child: Container(
                   padding: EdgeInsets.only(left: 30,right: 30),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -291,14 +292,14 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
                 ),
                 SizedBox(height: 8),
                 _buildFinanceNewsCard(
-                    'Pound To Dollar Rate Holds 1.28 On Labour Political Stability'),
+                    'Pound To Dollar Rate Holds 1.28 On Labour Political Stability','images/money.jpeg'),
                 _buildFinanceNewsCard(
-                    'Rupee closes flat, logs weekly decline; US jobs data in focus'),
+                    'Rupee closes flat, logs weekly decline; US jobs data in focus','images/money2.jpeg'),
                 _buildFinanceNewsCard(
-                    'USD/INR strengthens ahead of US NFP data'),
+                    'USD/INR strengthens ahead of US NFP data','images/rupee.jpeg'),
 
 
-                    ],
+                    ],),
                     ),
                     )
               ],
@@ -311,11 +312,8 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
 
   Widget _buildExchangeRateCard(String pair, String rate, String change) {
     return Container(
-      // shape: RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.circular(8),
-      // ),
       margin: EdgeInsets.only(left: 10,right: 10),
-      width: 150,
+      width: 120,
       height: 88,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Color.fromRGBO(240, 240, 240, 0.605),
 ),
@@ -341,16 +339,58 @@ class _CurrencyConverterState extends State<CurrencyConverter> {
     );
   }
 
-  Widget _buildFinanceNewsCard(String news) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Padding(
+  Widget _buildFinanceNewsCard(String news,String path) {
+    return Padding(padding: EdgeInsets.all(5),
+    child: Container(
+      height: 120,
+      width: 400,
+                    margin: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),color: Color.fromARGB(255, 233, 233, 233)
+                  ),
+
+      // decoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(8)
+      // ),
+      child: Row(children:[Expanded(flex: 1,
+        child: Container(
+                          // decoration: BoxDecoration(borderRadius: BorderRadius.circular(18),color: Colors.black),
+                          child: Image.asset(path,
+                          width: 90,
+                          height: 90,),)),
+        Expanded(flex: 1,
+          child:Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(news),
-      ),
-    );
+      )),
+    ])));
+
+        // return 
+          
+        //       Container(
+        //         height: 156,
+                
+        //       margin: EdgeInsets.all(20),
+        //             decoration: BoxDecoration(
+        // borderRadius: BorderRadius.circular(8),color: Color.fromARGB(255, 185, 185, 185)
+        //           ),
+        //       child: 
+        //       Padding(
+        //         padding: const EdgeInsets.all(8.0),
+        //         child: Row(
+        //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //           children: [          
+        //             // Image.asset(path,
+        //             //       width: 50,
+        //             //       height: 50,),
+        //                   FittedBox(
+        //                     fit: BoxFit.contain,
+        //            child:  Text(news,softWrap: true,overflow:TextOverflow.ellipsis,)),
+
+        //         ],
+        //         )
+        //       ),
+        //     );
+
   }
 }

@@ -19,7 +19,6 @@ class _LoginPageState extends State<LoginPage> {
 
   // void _login() {
   //   if (_formKey.currentState!.validate()) {
-  //     // Perform login logic here (e.g., API call, authentication)
   //     Navigator.pushReplacement(
   //       context,
   //       MaterialPageRoute(builder: (context) => CurrencyConverter()),
@@ -105,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
                   }
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                  if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$').hasMatch(value)) {
                     return 'Please enter a valid email';
                   }
                   return null;
@@ -132,6 +131,8 @@ class _LoginPageState extends State<LoginPage> {
                   if (value.length < 8) {
                     return 'Password should have a minimum of 8 characters';
                   }
+                  // if(value!=)
+                  //  return 'Incorrect Password';
                   return null;
                 },
               ),

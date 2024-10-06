@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:http/http.dart' as http;
-// import 'dart:convert';
-// import 'package:string_validator/string_validator.dart';
-// import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'currency_converter.dart'; // Import the CurrencyConverter screen
-// import 'LoginPage.dart'; // Import the LoginPage screen
 
 
 class SignUpPage extends StatefulWidget {
